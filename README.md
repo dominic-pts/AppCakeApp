@@ -1,4 +1,2 @@
 # AppCakeApp
-Xin Chào bạn hãy bắt đầu học git từ bây h B1
-
-Xin Chào bạn hãy bắt đầu học git từ bây h B222
+ Xin Chào Các bạn hãy cùng nhau xây dựng lên một chiếc App xịn xò nhé ' _ ' !!!!!!!.
