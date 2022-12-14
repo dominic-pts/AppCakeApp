@@ -12,7 +12,7 @@ public class ManagermenCart {
     private Context context;
     private TinyDB tinyDB;
 
-    public ManagermenCart(Context context, TinyDB tinyDB) {
+    public ManagermenCart(Context context) {
         this.context = context;
         this.tinyDB = tinyDB;
     }
@@ -37,7 +37,7 @@ public class ManagermenCart {
         tinyDB.putListObject("CartList", listFood);
         Toast.makeText(context,"Add to your Cart",Toast.LENGTH_SHORT).show();
     }
-    private ArrayList<FoodDomain> getListCart(){
+    public ArrayList<FoodDomain> getListCart(){
         return  tinyDB.getListObject("CartList");
     }
 
