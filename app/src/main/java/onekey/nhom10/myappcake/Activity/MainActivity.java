@@ -15,9 +15,11 @@ import onekey.nhom10.myappcake.Domain.FoodDomain;
 import onekey.nhom10.myappcake.R;
 
 public class MainActivity extends AppCompatActivity {
-private CatagoryAdapter adapter;
-private RecommendedAdapter adapter2;
-private RecyclerView recyclerViewCatagotyList, recyclerViewPopularList;
+
+    private CatagoryAdapter adapter;
+    private RecommendedAdapter adapter2;
+    private RecyclerView recyclerViewCatagotyList, recyclerViewPopularList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
