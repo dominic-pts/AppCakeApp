@@ -1,5 +1,6 @@
 package onekey.nhom10.myappcake.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import onekey.nhom10.myappcake.Activity.ShowDetailMainActivity;
 import onekey.nhom10.myappcake.Domain.FoodDomain;
 import onekey.nhom10.myappcake.R;
 
@@ -43,6 +45,12 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
         Glide.with(holder.itemView.getContext())
                 .load(drawableReourceId)
                 .into(holder.pic);
+
+        holder.addBtn.setOnClickListener(v -> {
+            Intent intent = new Intent (holder.itemView.getContext(), ShowDetailMainActivity.class);
+            intent.putExtra("object", recommendedDomains.get(position));
+            holder.itemView.getContext().startActivity (intent);
+        });
     }
 
     @Override
