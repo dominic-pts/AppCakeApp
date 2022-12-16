@@ -1,7 +1,9 @@
 package onekey.nhom10.myappcake.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -32,6 +34,7 @@ public class CartActivity extends AppCompatActivity {
 
         initView();
         initList();
+        bottomNavigation();
     }
 
     private void initList() {
@@ -62,19 +65,37 @@ public class CartActivity extends AppCompatActivity {
         double total = Math.round((managermenCart.getTotaFee() + tax + delivery)*100.0)/100.0;
         double itemTotal = Math.round(managermenCart.getTotaFee() * 100.0)/100.0;
 
-        totalFeeTxt.setText("$" + itemTotal );
-        taxTxt.setText("$" + tax );
-        deliveryTxt.setText("$" + delivery );
-        totalTxt.setText("$" + total );
+        totalFeeTxt.setText("$" + itemTotal);
+        taxTxt.setText("$" + tax);
+        deliveryTxt.setText("$" + delivery);
+        totalTxt.setText("$" + total);
 
     }
 
     private void initView() {
-        totalFeeTxt = findViewById(R.id.totalFeeTxt);
-        deliveryTxt = findViewById(R.id.deliveryTxt);
-        taxTxt = findViewById(R.id.taxTxt);
-        totalTxt = findViewById(R.id.totalTxt);
-        emptyTxt = findViewById(R.id.emptyTxt);
+        totalFeeTxt=findViewById(R.id.totalFeeTxt);
+        taxTxt=findViewById(R.id.taxTxt);
+        deliveryTxt=findViewById(R.id.deliveryTxt);
+        totalTxt=findViewById(R.id.totalTxt);
+        recyclerViewList=findViewById(R.id.view);
+        scrollView=findViewById(R.id.scrollView);
+        emptyTxt=findViewById(R.id.emptyTxt);
 
+    }
+    private void bottomNavigation () {
+        LinearLayout homeBtn=findViewById(R.id.homeBtn);
+        LinearLayout cartBtn=findViewById(R.id.cartBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity (new Intent(CartActivity.this, MainActivity.class));
+            }
+        });
+        cartBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(CartActivity.this, CartActivity.class));
+            }
+        });
     }
 }

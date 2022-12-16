@@ -1,6 +1,8 @@
 package onekey.nhom10.myappcake.Domain;
 
-public class FoodDomain {
+import java.io.Serializable;
+
+public class FoodDomain implements Serializable {
     private String title, Pic, description;
     private Double fee;
     private int star, time,calories;
