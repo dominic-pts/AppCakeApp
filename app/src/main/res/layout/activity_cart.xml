@@ -45,7 +45,8 @@
                 android:layout_margin="16dp"
                 android:background="@drawable/cart_background"
                 android:elevation="3dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -70,7 +71,7 @@
                         android:id="@+id/totalFeeTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$0"
+                        android:text="0 đ"
                         android:textColor="#373b54"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -99,7 +100,7 @@
                         android:id="@+id/taxTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$1"
+                        android:text="0 đ"
                         android:textColor="#373b54"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -128,7 +129,7 @@
                         android:id="@+id/deliveryTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$0"
+                        android:text="0 đ"
                         android:textColor="#373b54"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -166,7 +167,7 @@
                         android:id="@+id/totalTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$6"
+                        android:text="0 đ"
                         android:textColor="#373b54"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -175,14 +176,16 @@
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="100dp"
                 android:background="@drawable/red_cart_btn_background">
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/btnThanhToan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Thanh toán"
@@ -249,7 +252,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/btn_home" />
+                        app:srcCompat="@drawable/ic_home_colo_buttom" />
 
                     <TextView
                         android:id="@+id/textViewHome"
@@ -257,11 +260,12 @@
                         android:layout_height="wrap_content"
                         android:text="Home"
                         android:textAlignment="center"
-                        android:textColor="@color/cam"
+                        android:textColor="@color/colo_buttom"
                         android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/profileBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -279,11 +283,12 @@
                         android:layout_height="wrap_content"
                         android:text="Profile"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="@color/colo_buttom"
                         android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/cartBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -295,7 +300,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/bottom_btn5" />
+                        app:srcCompat="@drawable/ic_shopping_cart" />
 
                     <TextView
                         android:id="@+id/textViewGioHang"
@@ -303,7 +308,7 @@
                         android:layout_height="wrap_content"
                         android:text="Cart"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="@color/cam"
                         android:textSize="12sp" />
                 </LinearLayout>
 

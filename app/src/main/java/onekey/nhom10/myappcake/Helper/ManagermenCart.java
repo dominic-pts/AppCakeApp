@@ -14,9 +14,11 @@ public class ManagermenCart {
 
     public ManagermenCart(Context context) {
         this.context = context;
-        this.tinyDB = tinyDB;
+        this.tinyDB = new TinyDB(context);
     }
-
+    public ArrayList<FoodDomain> getListCart(){
+        return tinyDB.getListObject("CardList");
+    }
     public void insertFood(FoodDomain item){
         ArrayList<FoodDomain> listFood = getListCart();
         boolean existAlready = false;
@@ -34,11 +36,8 @@ public class ManagermenCart {
             listFood.add(item);
         }
 
-        tinyDB.putListObject("CartList", listFood);
-        Toast.makeText(context,"Add to your Cart",Toast.LENGTH_SHORT).show();
-    }
-    public ArrayList<FoodDomain> getListCart(){
-        return  tinyDB.getListObject("CartList");
+        tinyDB.putListObject("CardList", listFood);
+        Toast.makeText(context,"Đã thêm vào giỏ hàng",Toast.LENGTH_SHORT).show();
     }
 
     // xoá
@@ -49,14 +48,17 @@ public class ManagermenCart {
         else {
             listfood.get(position).setNumberInCart(listfood.get(position).getNumberInCart() - 1);
         }
-        tinyDB.putListObject("CasdList", listfood);
+        tinyDB.putListObject("CardList", listfood);
         changeNumberItemsListener.change();
+    }    // xoá
+    public void deleteAllNumberFood(){
+        tinyDB.remove("CardList");
     }
     // Thêm
     public void plusNumberFood(ArrayList<FoodDomain> listfood, int position, ChangeNumberItemsListener changeNumberItemsListener){
 
         listfood.get(position).setNumberInCart(listfood.get(position).getNumberInCart() + 1);
-        tinyDB.putListObject("CasdList", listfood);
+        tinyDB.putListObject("CardList", listfood);
         changeNumberItemsListener.change();
     }
 

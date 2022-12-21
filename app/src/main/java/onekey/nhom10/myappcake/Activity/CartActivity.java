@@ -1,15 +1,20 @@
 package onekey.nhom10.myappcake.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import onekey.nhom10.myappcake.Adapter.CartListAdapter;
+import onekey.nhom10.myappcake.Adapter.CatagoryAdapter;
 import onekey.nhom10.myappcake.Helper.ManagermenCart;
 import onekey.nhom10.myappcake.Interface.ChangeNumberItemsListener;
 import onekey.nhom10.myappcake.R;
@@ -21,6 +26,7 @@ public class CartActivity extends AppCompatActivity {
     private ManagermenCart managermenCart;
     private TextView totalFeeTxt, taxTxt, deliveryTxt, totalTxt, emptyTxt;
     private double tax;
+    private TextView btnThanhToan;
     private ScrollView scrollView;
 
     @Override
@@ -32,6 +38,18 @@ public class CartActivity extends AppCompatActivity {
 
         initView();
         initList();
+        bottomNavigation();
+        btnThanhToan = findViewById(R.id.btnThanhToan);
+        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(CartActivity.this,"Bạn đã mua hàng thành công",Toast.LENGTH_SHORT).show();
+                //xoá sau khi mua hàng thành công
+                managermenCart.deleteAllNumberFood();
+                // chuyển ra màn hình chính menu để tiếp tục mua hàng
+                startActivity( new Intent(CartActivity.this,MainActivity.class));
+            }
+        });
     }
 
     private void initList() {
@@ -62,19 +80,46 @@ public class CartActivity extends AppCompatActivity {
         double total = Math.round((managermenCart.getTotaFee() + tax + delivery)*100.0)/100.0;
         double itemTotal = Math.round(managermenCart.getTotaFee() * 100.0)/100.0;
 
-        totalFeeTxt.setText("$" + itemTotal );
-        taxTxt.setText("$" + tax );
-        deliveryTxt.setText("$" + delivery );
-        totalTxt.setText("$" + total );
+        totalFeeTxt.setText( itemTotal + " đ");
+        taxTxt.setText(tax + " đ");
+        deliveryTxt.setText(delivery + " đ" );
+        totalTxt.setText( total + " đ" );
 
     }
 
     private void initView() {
-        totalFeeTxt = findViewById(R.id.totalFeeTxt);
-        deliveryTxt = findViewById(R.id.deliveryTxt);
-        taxTxt = findViewById(R.id.taxTxt);
-        totalTxt = findViewById(R.id.totalTxt);
-        emptyTxt = findViewById(R.id.emptyTxt);
 
+        totalFeeTxt=findViewById(R.id.totalFeeTxt);
+        taxTxt=findViewById(R.id.taxTxt);
+        deliveryTxt=findViewById(R.id.deliveryTxt);
+        totalTxt=findViewById(R.id.totalTxt);
+        recyclerViewList=findViewById(R.id.view);
+        scrollView=findViewById(R.id.scrollView);
+        emptyTxt=findViewById(R.id.emptyTxt);
+
+    }
+    private void bottomNavigation () {
+        LinearLayout homeBtn=findViewById(R.id.homeBtn);
+        LinearLayout cartBtn=findViewById(R.id.cartBtn);
+        LinearLayout profileBtn=findViewById(R.id.profileBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity (new Intent(CartActivity.this, MainActivity.class));
+            }
+        });
+        cartBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(CartActivity.this, CartActivity.class));
+            }
+        });
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(CartActivity.this, ProfileActivity.class));
+                Toast.makeText(CartActivity.this, "Đang Phát Chuyển", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

@@ -10,4 +10,5 @@
     <color name="cam">#B22830</color>
     <color name="backGround">#ecebe6</color>
     <color name="colo_text">#373B54</color>
+    <color name="colo_buttom">#676767</color>
 </resources>

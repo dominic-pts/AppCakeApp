@@ -1,6 +1,10 @@
 package onekey.nhom10.myappcake.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,8 +31,33 @@ public class MainActivity extends AppCompatActivity {
         
         recyclerViewCatagoty();
         recyclerViewPopular();
+        bottomNavigation();
     }
-
+    private void bottomNavigation () {
+        LinearLayout homeBtn=findViewById(R.id.homeBtn);
+        LinearLayout cartBtn=findViewById(R.id.cartBtn);
+        LinearLayout profileBtn=findViewById(R.id.profileBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity (new Intent(MainActivity.this, MainActivity.class));
+            }
+        });
+        cartBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, CartActivity.class));
+            }
+        });
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                Toast.makeText(MainActivity.this, "Đang Phát Chuyển", Toast.LENGTH_LONG).show();
+            }
+        });
+}
+//2h32
     private void recyclerViewPopular() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         recyclerViewPopularList = findViewById(R.id.view2);
