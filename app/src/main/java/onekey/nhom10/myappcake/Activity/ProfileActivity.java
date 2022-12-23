@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
     EditText edittext_name, edittext_sdt, edittext_diachi, edittext_email;
     ConstraintLayout btn_luu;
     TinyDB tinyDB;
-    String getText;
+    String getTextName, getGetTextSdt, getGetText ;
     TextView text_name;
     
     @Override
@@ -45,9 +45,9 @@ public class ProfileActivity extends AppCompatActivity {
         text_name = findViewById(R.id.text_name_profile);
 
         tinyDB = new TinyDB(getApplicationContext());
-        getText = tinyDB.getString("StringText");
-        text_name.setText(getText);
-        edittext_name.setText(getText);
+        getTextName = tinyDB.getString("StringText");
+        text_name.setText(getTextName);
+        edittext_name.setText(getTextName);
 
 
     }
@@ -56,9 +56,9 @@ public class ProfileActivity extends AppCompatActivity {
         btn_luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getText = edittext_name.getText().toString();
-                tinyDB.putString("StringText", getText);
-                text_name.setText(getText);
+                getTextName = edittext_name.getText().toString();
+                tinyDB.putString("StringText", getTextName);
+                text_name.setText(getTextName);
 
 
 
