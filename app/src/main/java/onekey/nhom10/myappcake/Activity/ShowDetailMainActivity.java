@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 
 import onekey.nhom10.myappcake.Domain.FoodDomain;
 import onekey.nhom10.myappcake.Helper.ManagermenCart;
+import onekey.nhom10.myappcake.Helper.TinyDB;
 import onekey.nhom10.myappcake.R;
 
 public class ShowDetailMainActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class ShowDetailMainActivity extends AppCompatActivity {
     private FoodDomain object;
     private int numberOrder = 1;
     private ManagermenCart nanagementCart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class ShowDetailMainActivity extends AppCompatActivity {
         starTxt = findViewById(R.id.starTxt);
         caloryTxt = findViewById(R.id.ViCaloriesTxt);
         timeTxt = findViewById(R.id.timeTxt);
+
+
     }
 
     public void getBundle() {
@@ -73,7 +77,6 @@ public class ShowDetailMainActivity extends AppCompatActivity {
             }
         });
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 object.setNumberInCart(numberOrder);
