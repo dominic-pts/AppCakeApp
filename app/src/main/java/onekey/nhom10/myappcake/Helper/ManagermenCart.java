@@ -19,6 +19,7 @@ public class ManagermenCart {
     public ArrayList<FoodDomain> getListCart(){
         return tinyDB.getListObject("CardList");
     }
+
     public void insertFood(FoodDomain item){
         ArrayList<FoodDomain> listFood = getListCart();
         boolean existAlready = false;
@@ -52,7 +53,7 @@ public class ManagermenCart {
         changeNumberItemsListener.change();
     }    // xoá
     public void deleteAllNumberFood(){
-        tinyDB.remove("CardList");
+//        tinyDB.remove("CardList");
     }
     // Thêm
     public void plusNumberFood(ArrayList<FoodDomain> listfood, int position, ChangeNumberItemsListener changeNumberItemsListener){

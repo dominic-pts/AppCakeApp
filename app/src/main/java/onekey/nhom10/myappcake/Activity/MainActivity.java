@@ -47,10 +47,12 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout homeBtn=findViewById(R.id.homeBtn);
         LinearLayout cartBtn=findViewById(R.id.cartBtn);
         LinearLayout profileBtn=findViewById(R.id.profileBtn);
-        homeBtn.setOnClickListener(v -> startActivity (new Intent(MainActivity.this, MainActivity.class)));
+        LinearLayout supportBtn=findViewById(R.id.supportbtn);
+//        homeBtn.setOnClickListener(v -> startActivity (new Intent(MainActivity.this, MainActivity.class)));
         cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
         profileBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
-}
+        supportBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SupportActivity.class)));
+    }
 //2h32
     private void recyclerViewPopular() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
@@ -58,14 +60,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewPopularList.setLayoutManager(linearLayoutManager);
 
         ArrayList<FoodDomain> foodlist = new ArrayList<>();
-        foodlist.add(new FoodDomain("Donut chery","logo_1","flour, sugar, colorants, nuggets",13.0,10,20,1000));
-        foodlist.add(new FoodDomain("Chesse Burger","burger","beef, Gouda Cheese, special sauce, Lettuce,tomato",15.20,4,18,1500));
-        foodlist.add(new FoodDomain("Vagetable pizza","pizza3","olive ail, Vegetable oil,pitted Kalamata, cherry tomato, fresh oregano, basil",11.0,3,16,800));
-        foodlist.add(new FoodDomain("Drink","logo_drink_1","olive ail, Vegetable oil,pitted Kalamata, cherry tomato, fresh oregano, basil",14.0,3,16,800));
-        foodlist.add(new FoodDomain("pepperoni pizza","pizza1","slidces pepperoni, mozzarella cheese, fresh oregano,ground black pepper, pizzasauce",13.0,10,20,1000));
+        foodlist.add(new FoodDomain("Donut chery","logo_1","flour, sugar, colorants, nuggets",13.0,10,20,1200));
+        foodlist.add(new FoodDomain("Chesse Burger","burger","beef, Gouda Cheese, special sauce, Lettuce,tomato",15.0,4,18,1500));
+        foodlist.add(new FoodDomain("Vagetable pizza","pizza3","olive ail, Vegetable oil,pitted Kalamata, cherry tomato, fresh oregano, basil",11.0,3,16,890));
+        foodlist.add(new FoodDomain("Drink","logo_drink_1","olive ail, Vegetable oil,pitted Kalamata, cherry tomato, fresh oregano, basil",14.0,3,16,870));
+        foodlist.add(new FoodDomain("pepperoni pizza","pizza1","slidces pepperoni, mozzarella cheese, fresh oregano,ground black pepper, pizzasauce",13.0,10,20,900));
         foodlist.add(new FoodDomain("Birthday","logo_birthday_1","mozzarella cheese, fresh oregano,ground black pepper, pizzasauce",15.0,10,20,1000));
-        foodlist.add(new FoodDomain("Donut kramen","logo_donut_1","fresh oregano,ground black pepper, pizzasauce",19.0,10,20,1000));
-        foodlist.add(new FoodDomain("Hotdog","logo_hotdog_1","ground black pepper, pizzasauce",12.0,10,20,1000));
+        foodlist.add(new FoodDomain("Donut kramen","logo_donut_1","fresh oregano,ground black pepper, pizzasauce",19.0,10,20,1100));
+        foodlist.add(new FoodDomain("Hotdog","logo_hotdog_1","ground black pepper, pizzasauce",12.0,10,20,1300));
 
         adapter2 = new RecommendedAdapter(foodlist);
         recyclerViewPopularList.setAdapter(adapter2);

@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">My App Cake</string>
+    <string name="app_name">Enjoy Cake</string>
+
+    <string name="next">Tiếp</string>
+    <string name="get_started">Bắt đầu</string>
+    <string name="skip">Bỏ qua</string>
+
 </resources>

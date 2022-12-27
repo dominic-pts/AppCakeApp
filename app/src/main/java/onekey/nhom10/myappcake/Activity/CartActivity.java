@@ -29,7 +29,6 @@ public class CartActivity extends AppCompatActivity {
     private double tax;
     private TextView btnThanhToan;
     private ScrollView scrollView;
-    TinyDB tinyDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +96,7 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(CartActivity.this,"Bạn đã mua hàng thành công",Toast.LENGTH_SHORT).show();
                 //xoá sau khi mua hàng thành công
-                managermenCart.deleteAllNumberFood();
+//                managermenCart.deleteAllNumberFood();
                 // chuyển ra màn hình chính menu để tiếp tục mua hàng
                 startActivity( new Intent(CartActivity.this,MainActivity.class));
             }
@@ -109,8 +108,10 @@ public class CartActivity extends AppCompatActivity {
         LinearLayout homeBtn=findViewById(R.id.homeBtn);
         LinearLayout cartBtn=findViewById(R.id.cartBtn);
         LinearLayout profileBtn=findViewById(R.id.profileBtn);
+        LinearLayout supportBtn=findViewById(R.id.supportbtn);
         homeBtn.setOnClickListener(v -> startActivity (new Intent(CartActivity.this, MainActivity.class)));
-        cartBtn.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, CartActivity.class)));
+//        cartBtn.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, CartActivity.class)));
         profileBtn.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, ProfileActivity.class)));
+        supportBtn.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, SupportActivity.class)));
     }
 }

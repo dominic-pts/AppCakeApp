@@ -1,4 +1,4 @@
-package onekey.nhom10.myappcake.Activity;
+package onekey.nhom10.myappcake.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,14 +12,15 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.List;
 
+import onekey.nhom10.myappcake.Domain.ScreenDomain;
 import onekey.nhom10.myappcake.R;
 
 public class IntroViewPagerAdapter extends PagerAdapter {
 
    Context mContext ;
-   List<ScreenItem> mListScreen;
+   List<ScreenDomain> mListScreen;
 
-    public IntroViewPagerAdapter(Context mContext, List<ScreenItem> mListScreen) {
+    public IntroViewPagerAdapter(Context mContext, List<ScreenDomain> mListScreen) {
         this.mContext = mContext;
         this.mListScreen = mListScreen;
     }

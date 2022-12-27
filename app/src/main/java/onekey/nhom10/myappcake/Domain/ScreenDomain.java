@@ -1,11 +1,11 @@
-package onekey.nhom10.myappcake.Activity;
+package onekey.nhom10.myappcake.Domain;
 
-public class ScreenItem {
+public class ScreenDomain {
 
     String Title,Description;
     int ScreenImg;
 
-    public ScreenItem(String title, String description, int screenImg) {
+    public ScreenDomain(String title, String description, int screenImg) {
         Title = title;
         Description = description;
         ScreenImg = screenImg;

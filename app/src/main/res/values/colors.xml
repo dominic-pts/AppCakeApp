@@ -11,4 +11,26 @@
     <color name="backGround">#ecebe6</color>
     <color name="colo_text">#373B54</color>
     <color name="colo_buttom">#676767</color>
+
+    <!--====================start intro=======================-->
+
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#ffffff</color>
+
+    <!-- colors for button style -->
+
+    <color name="gradient_start_color">#E39EA2</color>
+    <color name="gradient_end_color">#B83A41</color>
+
+
+    <!-- colors for tab and screent text -->
+
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="intro_title_color">#000000</color>
+    <color name="intro_description_color">#656565</color>
+
+
+
+
 </resources>
